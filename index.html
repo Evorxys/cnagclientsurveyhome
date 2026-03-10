@@ -6,203 +6,355 @@
 <title>DENR CENRO Naguilian</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap');
+
+:root {
+  --navy: #003566;
+  --blue: #005f99;
+  --teal: #00a896;
+  --green: #00c896;
+  --yellow: #ffd60a;
+  --white: #ffffff;
+}
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(160deg, #003566, #005f99, #00a896);
-  font-family: 'Inter', sans-serif;
-  padding: 16px;
+  background: linear-gradient(145deg, #002a52 0%, #004f82 45%, #007a7a 100%);
+  font-family: 'Nunito', sans-serif;
+  padding: 24px 16px 40px;
 }
 
-.container {
-  width: 100%;
-  max-width: 680px;
+/* ── HEADER ── */
+.header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 18px;
-}
-
-/* TOP ROW: Logo + Agency Badge side by side */
-.top-row {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  background: #ffffff;
-  padding: 16px 24px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  gap: 14px;
+  margin-bottom: 24px;
+  animation: fadeDown 0.6s ease both;
 }
 
 .logo-wrapper {
-  flex-shrink: 0;
-  width: 80px;
+  width: 110px;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s;
 }
-
-.logo-wrapper:hover { transform: scale(1.05); }
-
+.logo-wrapper:hover { transform: scale(1.06); }
 .logo-wrapper img {
   width: 100%;
-  object-fit: contain;
-  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.5));
 }
 
+.agency-badge {
+  background: var(--white);
+  padding: 10px 28px;
+  border-radius: 50px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
 .agency-badge h1 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
-  font-size: clamp(1.1rem, 3.5vw, 1.5rem);
-  color: #003566;
-  line-height: 1.2;
+  font-size: 1.1rem;
+  color: var(--navy);
+  letter-spacing: 0.5px;
 }
 
-.agency-badge p {
-  font-size: 0.78rem;
-  color: #555;
-  margin-top: 3px;
-  font-weight: 500;
+/* ── NOTICE CARD ── */
+.notice-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 22px 24px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+  margin-bottom: 24px;
+  animation: fadeUp 0.6s ease 0.1s both;
+  position: relative;
+  overflow: hidden;
 }
-
-/* NOTICE */
-.notice-display {
-  width: 100%;
-  background: #ffffff;
-  padding: 20px 24px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-  text-align: center;
-  border-left: 5px solid #ffd60a;
+.notice-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--navy), var(--teal));
 }
-
+.notice-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.notice-icon {
+  font-size: 1.5rem;
+}
 .notice-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
-  font-size: 0.95rem;
-  color: #003566;
-  letter-spacing: 0.08em;
-  margin-bottom: 10px;
-  text-transform: uppercase;
+  font-size: 1rem;
+  color: var(--navy);
+  letter-spacing: 0.5px;
 }
-
 #noticeText {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 0.9rem;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
   line-height: 1.7;
   color: #222;
 }
 
-/* BUTTONS SECTION */
-.buttons-section {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+/* ── SECTION LABEL ── */
+.section-label {
+  text-align: center;
+  margin-bottom: 16px;
+  animation: fadeUp 0.6s ease 0.2s both;
+}
+.section-label p {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 1.08rem;
+  color: rgba(255,255,255,0.95);
+  line-height: 1.6;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
-/* Top two buttons in a row */
-.btn-grid {
+/* ── CARD GRID ── */
+.cards-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px;
+  margin-bottom: 14px;
 }
 
-/* FWA section with label */
-.fwa-wrapper {
-  width: 100%;
+.survey-card {
+  background: var(--white);
+  border-radius: 18px;
+  padding: 20px 16px 18px;
+  text-decoration: none;
   display: flex;
   flex-direction: column;
-  gap: 0;
+  align-items: flex-start;
+  gap: 10px;
+  box-shadow: 0 6px 0px rgba(0,0,0,0.18), 0 10px 28px rgba(0,0,0,0.25);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  position: relative;
+  overflow: hidden;
+  animation: fadeUp 0.6s ease both;
+  border: 2.5px solid transparent;
+}
+.survey-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 0px rgba(0,0,0,0.15), 0 18px 35px rgba(0,0,0,0.3);
+  border-color: var(--teal);
+}
+.survey-card:active {
+  transform: translateY(2px);
+  box-shadow: 0 3px 0px rgba(0,0,0,0.18), 0 6px 16px rgba(0,0,0,0.2);
 }
 
-.fwa-desc {
-  background: rgba(255,255,255,0.15);
-  border: 1px solid rgba(255,255,255,0.35);
-  border-bottom: none;
-  border-radius: 16px 16px 0 0;
-  padding: 10px 20px;
-  text-align: center;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: #ffffff;
-  font-family: 'Inter', sans-serif;
-  letter-spacing: 0.01em;
-}
+.card-delay-1 { animation-delay: 0.25s; }
+.card-delay-2 { animation-delay: 0.35s; }
 
-.btn {
-  width: 100%;
-  padding: 18px 14px;
-  background: linear-gradient(135deg, #003566, #005f99);
-  border-radius: 16px;
-  text-decoration: none;
-  text-align: center;
-  transition: 0.2s ease;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+.card-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
 }
+.icon-blue  { background: #e8f4ff; }
+.icon-green { background: #e4fff8; }
 
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 28px rgba(0,0,0,0.4);
+.card-body { width: 100%; }
+
+.card-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 50px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  margin-bottom: 7px;
 }
+.tag-blue  { background: #dbeeff; color: var(--navy); }
+.tag-green { background: #d4fff3; color: #006a50; }
 
-.btn-fwa {
-  border-radius: 0 0 16px 16px;
-  background: linear-gradient(135deg, #00695c, #00897b);
-}
-
-.btn-label {
+.card-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: clamp(0.78rem, 2.2vw, 1rem);
-  color: #ffd60a;
-  line-height: 1.3;
+  font-size: 0.95rem;
+  color: var(--navy);
+  line-height: 1.35;
+  margin-bottom: 6px;
 }
 
-.footer {
+.card-desc {
   font-size: 0.78rem;
-  color: rgba(255,255,255,0.75);
-  text-align: center;
-  padding-bottom: 4px;
+  font-weight: 600;
+  color: #667;
+  line-height: 1.4;
 }
 
-/* FLOATING SCROLL BUTTON */
+.card-footer {
+  margin-top: auto;
+  padding-top: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tap-hint {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.card-arrow {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy), var(--blue));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.card-arrow-green {
+  background: linear-gradient(135deg, var(--teal), var(--green));
+}
+
+/* ── FWA WIDE CARD ── */
+.fwa-card {
+  background: linear-gradient(135deg, #003566 0%, #005f99 60%, #00a896 100%);
+  border-radius: 18px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 22px;
+  box-shadow: 0 6px 0px rgba(0,0,90,0.3), 0 12px 30px rgba(0,0,0,0.35);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  animation: fadeUp 0.6s ease 0.45s both;
+  border: 2.5px solid rgba(255,255,255,0.15);
+  position: relative;
+  overflow: hidden;
+}
+.fwa-card::after {
+  content: '';
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 100px; height: 100px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 50%;
+}
+.fwa-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 0px rgba(0,0,90,0.25), 0 18px 40px rgba(0,0,0,0.4);
+}
+.fwa-card:active {
+  transform: translateY(2px);
+  box-shadow: 0 3px 0px rgba(0,0,90,0.3);
+}
+
+.fwa-icon-wrap {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  flex-shrink: 0;
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
+.fwa-body { flex: 1; }
+
+.fwa-tag {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--navy);
+  padding: 3px 12px;
+  border-radius: 50px;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+}
+
+.fwa-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: var(--white);
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+
+.fwa-desc {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.4;
+}
+
+.fwa-arrow {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--yellow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: var(--navy);
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+/* ── FOOTER ── */
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
+  font-weight: 600;
+  animation: fadeUp 0.6s ease 0.55s both;
+}
+
+/* ── FLOATING BUTTON ── */
 .scroll-btn {
   position: fixed;
   bottom: 22px;
   right: 22px;
-  background: rgba(255,255,255,0.2);
-  border: 2px solid #ffffff;
-  color: #ffffff;
-  padding: 11px 16px;
+  background: var(--yellow);
+  border: none;
+  color: var(--navy);
+  padding: 12px 16px;
   border-radius: 50px;
-  font-weight: bold;
-  font-size: 0.78rem;
+  font-weight: 900;
   cursor: pointer;
-  transition: 0.3s ease;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
-  letter-spacing: 0.05em;
+  transition: 0.2s ease;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.3px;
 }
+.scroll-btn:hover { transform: scale(1.08); }
 
-.scroll-btn:hover {
-  background: #ffffff;
-  color: #003566;
-  transform: scale(1.08);
-}
-
-/* MODAL */
+/* ── MODAL ── */
 .modal {
   display: none;
   position: fixed;
@@ -212,115 +364,138 @@ body {
   align-items: center;
   z-index: 999;
 }
-
 .modal-content {
   background: #fff;
   width: 90%;
-  max-width: 430px;
-  padding: 24px;
-  border-radius: 16px;
+  max-width: 440px;
+  padding: 26px;
+  border-radius: 18px;
   box-shadow: 0 20px 50px rgba(0,0,0,0.4);
 }
-
 .modal-content h3 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  color: #003566;
+  color: var(--navy);
   margin-bottom: 14px;
 }
-
 .modal-content textarea {
   width: 100%;
   height: 130px;
   padding: 12px;
-  font-size: 0.9rem;
-  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-family: 'Nunito', sans-serif;
   resize: none;
+  border: 2px solid #dde;
+  border-radius: 10px;
   margin-bottom: 14px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
 }
-
 .modal-content button {
   padding: 10px 18px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  font-weight: bold;
-  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
 }
+.save-btn { background: var(--navy); color: #fff; }
+.close-btn { background: #eee; margin-left: 10px; }
 
-.save-btn { background: #003566; color: #fff; }
-.close-btn { background: #e0e0e0; color: #333; margin-left: 10px; }
-
-/* RESPONSIVE: stack grid on very small screens */
-@media (max-width: 380px) {
-  .btn-grid { grid-template-columns: 1fr; }
-  .top-row { flex-direction: column; text-align: center; }
+/* ── ANIMATIONS ── */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-
-  <!-- Logo + Agency Name -->
-  <div class="top-row">
-    <div class="logo-wrapper" onclick="openModal()">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Logo_of_the_Department_of_Environment_and_Natural_Resources.svg/960px-Logo_of_the_Department_of_Environment_and_Natural_Resources.svg.png" alt="DENR Logo">
-    </div>
-    <div class="agency-badge">
-      <h1>DENR CENRO NAGUILIAN</h1>
-      <p>Department of Environment and Natural Resources</p>
-    </div>
+<!-- HEADER -->
+<div class="header">
+  <div class="logo-wrapper" onclick="openModal()">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Logo_of_the_Department_of_Environment_and_Natural_Resources.svg/960px-Logo_of_the_Department_of_Environment_and_Natural_Resources.svg.png">
   </div>
-
-  <!-- Notice -->
-  <div class="notice-display">
-    <div class="notice-title">📢 Official Announcement</div>
-    <div id="noticeText">
-      Pursuant to DENR DAO 2025-34, effective January 5, 2026, all offices of DENR will adapt a 4-day work week schedule.
-      Our office will accommodate clients from Monday to Thursday (7:00AM – 7:00PM).
-      Please be guided accordingly. Thank you!
-    </div>
+  <div class="agency-badge">
+    <h1>DENR CENRO NAGUILIAN</h1>
   </div>
+</div>
 
-  <!-- Buttons -->
-  <div class="buttons-section" id="buttonsSection">
-
-    <!-- Two main forms side by side -->
-    <div class="btn-grid">
-      <a class="btn" href="https://survey123.arcgis.com/share/96b9d8e9cad14063bc8a4bbe01c52211?portalUrl=https://controlmap.denr.gov.ph/arcgis" target="_blank">
-        <span class="btn-label">Client Feedback Form</span>
-      </a>
-      <a class="btn" href="https://survey123.arcgis.com/share/993a85bbabd040e8b9c65d4244f2aa44?portalUrl=https://controlmap.denr.gov.ph/arcgis" target="_blank">
-        <span class="btn-label">Client Satisfaction Measurement Survey</span>
-      </a>
-    </div>
-
-    <!-- FWA Survey with description label -->
-    <div class="fwa-wrapper">
-      <div class="fwa-desc">
-        🗓️ Kindly answer our Survey for the Four (4) Days Work Week Implementation
-        <br>
-        (Pakisagutan po ang aming Survey para sa Implementasyon ng Four (4) Days Work Week)
-      </div>
-      <a class="btn btn-fwa" href="https://survey123.arcgis.com/share/24eb9a2c823c49edb65ffeb446a7aeb5?portalUrl=https://controlmap.denr.gov.ph/arcgis" target="_blank">
-        <span class="btn-label">CLIENTS - 4 Day Work Week Survey</span>
-      </a>
-    </div>
-
+<!-- NOTICE CARD -->
+<div class="notice-card">
+  <div class="notice-header">
+    <span class="notice-icon">📢</span>
+    <span class="notice-title">OFFICIAL ANNOUNCEMENT</span>
   </div>
+  <div id="noticeText">
+    The Office of the President issues Memorandum Circular 114 which formalizes President Ferdinand Marcos Jr.'s order to government agencies
+    to "Strictly Adopt" energy convervation protocols and four-day work week scheme <strong>New Schedule: Monday to Thursday (7:00AM – 6:00PM)</strong>.
+    Please be guided accordingly. Thank you!
+  </div>
+</div>
 
-  <div class="footer">© DENR CENRO Naguilian &nbsp;|&nbsp; La Union, Philippines</div>
+<!-- SECTION LABEL -->
+<div class="section-label" id="buttonsSection">
+  <p>Kindly Answer our Surveys for Clients Below.<br>We appreciate your Time and Effort 😊💚💙</p>
+</div>
+
+<!-- 2-COLUMN CARD GRID -->
+<div class="cards-grid">
+
+  <a class="survey-card card-delay-1"
+     href="https://survey123.arcgis.com/share/96b9d8e9cad14063bc8a4bbe01c52211?portalUrl=https://controlmap.denr.gov.ph/arcgis"
+     target="_blank">
+    <div class="card-icon-wrap icon-blue">📋</div>
+    <div class="card-body">
+      <span class="card-tag tag-blue">Survey</span>
+      <div class="card-title">Client Feedback Form</div>
+      <div class="card-desc">Share your experience with our service</div>
+    </div>
+    <div class="card-footer">
+      <span class="tap-hint">Tap to Open</span>
+      <div class="card-arrow">▶</div>
+    </div>
+  </a>
+
+  <a class="survey-card card-delay-2"
+     href="https://survey123.arcgis.com/share/993a85bbabd040e8b9c65d4244f2aa44?portalUrl=https://controlmap.denr.gov.ph/arcgis"
+     target="_blank">
+    <div class="card-icon-wrap icon-green">📊</div>
+    <div class="card-body">
+      <span class="card-tag tag-green">Survey</span>
+      <div class="card-title">Client Satisfaction Measurement</div>
+      <div class="card-desc">Rate our overall service quality</div>
+    </div>
+    <div class="card-footer">
+      <span class="tap-hint">Tap to Open</span>
+      <div class="card-arrow card-arrow-green">▶</div>
+    </div>
+  </a>
 
 </div>
 
-<!-- Floating Scroll Button -->
+<!-- FWA FULL-WIDTH CARD -->
+<a class="fwa-card"
+   href="https://survey123.arcgis.com/share/24eb9a2c823c49edb65ffeb446a7aeb5?portalUrl=https://controlmap.denr.gov.ph/arcgis"
+   target="_blank">
+  <div class="fwa-icon-wrap">🗓️</div>
+  <div class="fwa-body">
+    <span class="fwa-tag">New Survey</span>
+    <div class="fwa-title">FWA Survey</div>
+    <div class="fwa-desc">Kindly answer our survey for the Four (4) Days Work Week Implementation</div>
+  </div>
+  <div class="fwa-arrow">▶</div>
+</a>
+
+<div class="footer">Department of Environment and Natural Resources</div>
+
+<!-- FLOATING BUTTON -->
 <button class="scroll-btn" onclick="scrollToButtons()">VIEW FORMS ↓</button>
 
-<!-- Edit Modal -->
+<!-- MODAL -->
 <div class="modal" id="noteModal">
   <div class="modal-content">
     <h3>✏️ Edit Announcement</h3>
@@ -334,17 +509,14 @@ body {
 function scrollToButtons() {
   document.getElementById("buttonsSection").scrollIntoView({ behavior: "smooth" });
 }
-
 function openModal() {
   document.getElementById("noteModal").style.display = "flex";
   document.getElementById("editNotice").value =
-    document.getElementById("noticeText").innerText.trim();
+    document.getElementById("noticeText").innerText;
 }
-
 function closeModal() {
   document.getElementById("noteModal").style.display = "none";
 }
-
 function saveNotice() {
   const newText = document.getElementById("editNotice").value;
   document.getElementById("noticeText").innerText = newText;
