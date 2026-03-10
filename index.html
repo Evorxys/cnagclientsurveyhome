@@ -10,9 +10,7 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   min-height: 100vh;
@@ -21,132 +19,187 @@ body {
   align-items: center;
   background: linear-gradient(160deg, #003566, #005f99, #00a896);
   font-family: 'Inter', sans-serif;
-  padding: 20px;
+  padding: 16px;
 }
 
 .container {
   width: 100%;
-  max-width: 600px;
+  max-width: 680px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 28px;
+  gap: 18px;
+}
+
+/* TOP ROW: Logo + Agency Badge side by side */
+.top-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: #ffffff;
+  padding: 16px 24px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
 }
 
 .logo-wrapper {
-  width: 180px;
+  flex-shrink: 0;
+  width: 80px;
   cursor: pointer;
   transition: transform 0.2s ease;
 }
 
-.logo-wrapper:hover {
-  transform: scale(1.05);
-}
+.logo-wrapper:hover { transform: scale(1.05); }
 
 .logo-wrapper img {
   width: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 10px 25px rgba(0,0,0,0.4));
-}
-
-.agency-badge {
-  background: #ffffff;
-  padding: 14px 30px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
 }
 
 .agency-badge h1 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
-  font-size: 1.6rem;
+  font-size: clamp(1.1rem, 3.5vw, 1.5rem);
   color: #003566;
+  line-height: 1.2;
+}
+
+.agency-badge p {
+  font-size: 0.78rem;
+  color: #555;
+  margin-top: 3px;
+  font-weight: 500;
 }
 
 /* NOTICE */
 .notice-display {
   width: 100%;
   background: #ffffff;
-  padding: 30px;
-  border-radius: 18px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  padding: 20px 24px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
   text-align: center;
+  border-left: 5px solid #ffd60a;
 }
 
 .notice-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
-  font-size: 1.4rem;
+  font-size: 0.95rem;
   color: #003566;
-  margin-bottom: 20px;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
 }
 
 #noticeText {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 1.35rem;
-  line-height: 1.8;
-  color: #111;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #222;
 }
 
-/* BUTTONS */
+/* BUTTONS SECTION */
 .buttons-section {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 14px;
+}
+
+/* Top two buttons in a row */
+.btn-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* FWA section with label */
+.fwa-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.fwa-desc {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.35);
+  border-bottom: none;
+  border-radius: 16px 16px 0 0;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.01em;
 }
 
 .btn {
   width: 100%;
-  padding: 22px;
+  padding: 18px 14px;
   background: linear-gradient(135deg, #003566, #005f99);
-  border-radius: 18px;
+  border-radius: 16px;
   text-decoration: none;
   text-align: center;
   transition: 0.2s ease;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn:hover {
   transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.4);
+}
+
+.btn-fwa {
+  border-radius: 0 0 16px 16px;
+  background: linear-gradient(135deg, #00695c, #00897b);
 }
 
 .btn-label {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: 1.2rem;
+  font-size: clamp(0.78rem, 2.2vw, 1rem);
   color: #ffd60a;
+  line-height: 1.3;
 }
 
 .footer {
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.8);
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.75);
   text-align: center;
+  padding-bottom: 4px;
 }
 
 /* FLOATING SCROLL BUTTON */
 .scroll-btn {
   position: fixed;
-  bottom: 25px;
-  right: 25px;
+  bottom: 22px;
+  right: 22px;
   background: rgba(255,255,255,0.2);
-  /* backdrop-filter: blur(10px); */
   border: 2px solid #ffffff;
   color: #ffffff;
-  padding: 14px 18px;
+  padding: 11px 16px;
   border-radius: 50px;
   font-weight: bold;
+  font-size: 0.78rem;
   cursor: pointer;
   transition: 0.3s ease;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  letter-spacing: 0.05em;
 }
 
 .scroll-btn:hover {
   background: #ffffff;
   color: #003566;
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 /* MODAL */
@@ -157,48 +210,54 @@ body {
   background: rgba(0,0,0,0.7);
   justify-content: center;
   align-items: center;
+  z-index: 999;
 }
 
 .modal-content {
   background: #fff;
   width: 90%;
-  max-width: 450px;
-  padding: 25px;
+  max-width: 430px;
+  padding: 24px;
   border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
 }
 
 .modal-content h3 {
   font-family: 'Montserrat', sans-serif;
-  margin-bottom: 15px;
+  font-weight: 800;
+  color: #003566;
+  margin-bottom: 14px;
 }
 
 .modal-content textarea {
   width: 100%;
-  height: 140px;
+  height: 130px;
   padding: 12px;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
   resize: none;
-  margin-bottom: 15px;
+  margin-bottom: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
 }
 
 .modal-content button {
-  padding: 10px 16px;
+  padding: 10px 18px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.save-btn {
-  background: #003566;
-  color: #fff;
-}
+.save-btn { background: #003566; color: #fff; }
+.close-btn { background: #e0e0e0; color: #333; margin-left: 10px; }
 
-.close-btn {
-  background: #ccc;
-  margin-left: 10px;
+/* RESPONSIVE: stack grid on very small screens */
+@media (max-width: 380px) {
+  .btn-grid { grid-template-columns: 1fr; }
+  .top-row { flex-direction: column; text-align: center; }
 }
-
 </style>
 </head>
 
@@ -206,45 +265,65 @@ body {
 
 <div class="container">
 
-  <div class="logo-wrapper" onclick="openModal()">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Logo_of_the_Department_of_Environment_and_Natural_Resources.svg/960px-Logo_of_the_Department_of_Environment_and_Natural_Resources.svg.png">
+  <!-- Logo + Agency Name -->
+  <div class="top-row">
+    <div class="logo-wrapper" onclick="openModal()">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Logo_of_the_Department_of_Environment_and_Natural_Resources.svg/960px-Logo_of_the_Department_of_Environment_and_Natural_Resources.svg.png" alt="DENR Logo">
+    </div>
+    <div class="agency-badge">
+      <h1>DENR CENRO NAGUILIAN</h1>
+      <p>Department of Environment and Natural Resources</p>
+    </div>
   </div>
 
-  <div class="agency-badge">
-    <h1>DENR CENRO NAGUILIAN</h1>
-  </div>
-
+  <!-- Notice -->
   <div class="notice-display">
-    <div class="notice-title">OFFICIAL ANNOUNCEMENT</div>
+    <div class="notice-title">📢 Official Announcement</div>
     <div id="noticeText">
-      Pursuant to DENR DAO 2025-34, effective January 5, 2026, all office of DENR will adapt 4 days a week working schedule.
-      Our office will accommodate clients from Monday to Thursday (7:00AM to 7:00PM).
+      Pursuant to DENR DAO 2025-34, effective January 5, 2026, all offices of DENR will adapt a 4-day work week schedule.
+      Our office will accommodate clients from Monday to Thursday (7:00AM – 7:00PM).
       Please be guided accordingly. Thank you!
     </div>
   </div>
 
-  <!-- TARGET SECTION -->
+  <!-- Buttons -->
   <div class="buttons-section" id="buttonsSection">
-    <a class="btn" href="https://survey123.arcgis.com/share/96b9d8e9cad14063bc8a4bbe01c52211?portalUrl=https://controlmap.denr.gov.ph/arcgis" target="_blank">
-      <span class="btn-label">Client Feedback Form</span>
-    </a>
 
-    <a class="btn" href="https://survey123.arcgis.com/share/993a85bbabd040e8b9c65d4244f2aa44?portalUrl=https://controlmap.denr.gov.ph/arcgis" target="_blank">
-      <span class="btn-label">Client Satisfaction Measurement Survey</span>
-    </a>
+    <!-- Two main forms side by side -->
+    <div class="btn-grid">
+      <a class="btn" href="https://survey123.arcgis.com/share/96b9d8e9cad14063bc8a4bbe01c52211?portalUrl=https://controlmap.denr.gov.ph/arcgis" target="_blank">
+        <span class="btn-label">Client Feedback Form</span>
+      </a>
+      <a class="btn" href="https://survey123.arcgis.com/share/993a85bbabd040e8b9c65d4244f2aa44?portalUrl=https://controlmap.denr.gov.ph/arcgis" target="_blank">
+        <span class="btn-label">Client Satisfaction Measurement Survey</span>
+      </a>
+    </div>
+
+    <!-- FWA Survey with description label -->
+    <div class="fwa-wrapper">
+      <div class="fwa-desc">
+        🗓️ Kindly answer our Survey for the Four (4) Days Work Week Implementation
+        <br>
+        (Pakisagutan po ang aming Survey para sa Implementasyon ng Four (4) Days Work Week)
+      </div>
+      <a class="btn btn-fwa" href="https://survey123.arcgis.com/share/24eb9a2c823c49edb65ffeb446a7aeb5?portalUrl=https://controlmap.denr.gov.ph/arcgis" target="_blank">
+        <span class="btn-label">CLIENTS - 4 Day Work Week Survey</span>
+      </a>
+    </div>
+
   </div>
 
-  <div class="footer">Department of Environment and Natural Resources</div>
+  <div class="footer">© DENR CENRO Naguilian &nbsp;|&nbsp; La Union, Philippines</div>
 
 </div>
 
-<!-- FLOATING BUTTON -->
+<!-- Floating Scroll Button -->
 <button class="scroll-btn" onclick="scrollToButtons()">VIEW FORMS ↓</button>
 
-<!-- MODAL -->
+<!-- Edit Modal -->
 <div class="modal" id="noteModal">
   <div class="modal-content">
-    <h3>Edit Announcement</h3>
+    <h3>✏️ Edit Announcement</h3>
     <textarea id="editNotice"></textarea>
     <button class="save-btn" onclick="saveNotice()">Save</button>
     <button class="close-btn" onclick="closeModal()">Cancel</button>
@@ -259,7 +338,7 @@ function scrollToButtons() {
 function openModal() {
   document.getElementById("noteModal").style.display = "flex";
   document.getElementById("editNotice").value =
-    document.getElementById("noticeText").innerText;
+    document.getElementById("noticeText").innerText.trim();
 }
 
 function closeModal() {
